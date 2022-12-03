@@ -32,12 +32,12 @@
             let userId = profile.userId;
             let displayName = profile.displayName;
             let pictureUrl = profile.pictureUrl;
-            let url = "https://script.google.com/macros/s/AKfycbxol-c3J8I2T3mHBi7wi0W7C4LNy3wD4-ljlkiMB4Gv6QPis0B1S3XD9PQVYbVejmPX/exec?userId="+userId+"&displayName="+displayName+"&pictureUrl="+pictureUrl;
+            let url = "https://script.google.com/macros/s/AKfycbwOwqmSKnjl22cBklri6VputcC98JPMwP6z0sc2ncT9ArOdr-O0Q6THy2n5DRIqStlr/exec?userId="+userId+"&displayName="+displayName+"&pictureUrl="+pictureUrl;
             document.getElementById("formframe").src = url;
         }).catch(err => console.error(err));
     }
 
-    liff.init({ liffId: "1657706419-WpxROllG" }, () => {
+    liff.init({ liffId: "1657706419-B8b8Gzz6" }, () => {
         if (liff.isLoggedIn()) {
             runApp();
         } else {
