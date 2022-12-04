@@ -31,9 +31,7 @@
     
 <script>  
     
-    async function sendMsg() {
-      if (liff.getContext().type !== "none") {
-        var flexJson = {
+var flexJson = {
   "type": "bubble",
   "body": {
     "type": "box",
@@ -74,11 +72,14 @@
       "separator": true
     }
   }
-}   
-        await liff.sendMessages(flexJson)
-        return [{ type: "flex", altText: "คำนวณค่างวดรถ", contents: flexJson }];
-        
-      }      
+}
+
+async function sendMsg() {
+      if (liff.getContext().type !== "none") {
+        await liff.sendMessages(flexJson)  
+          return [{ type: "flex", altText: "คำนวณค่างวดรถ", contents: flexJson }];
+      }
+      return [{ type: "flex", altText: "คำนวณค่างวดรถ", contents: flexJson }];
     }
     
 //     async function sendMsg() {
