@@ -44,19 +44,19 @@
             document.getElementById("formframe").src = url;
         }).catch(err => console.error(err));
     }
-
-//     liff.init({ liffId: "1657706419-B8b8Gzz6" }, () => {
-//         if (liff.isLoggedIn()) {
-//             runApp();
-//         } else {
-//             liff.login();
-//         }
-//     }, err => console.error(err.code, error.message));
     
-    async function main() {
+    async function getUserProfile() {
+      const profile = await liff.getProfile()
+      const box1 = document.getElementById("statusMessage").append(profile.statusMessage)
+      console.log(box1)
+    }
+
+    
+async function main() {
         await liff.init({ liffId: "1657706419-B8b8Gzz6" }, () => {
         if (liff.isLoggedIn()) {
             runApp();
+            getUserProfile();
         } else {
             liff.login();
         }
