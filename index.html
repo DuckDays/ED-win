@@ -34,16 +34,30 @@
 <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
 <script>
     
-//     function runApp() {
-//         liff.getProfile().then(profile => {
-//             let userId = profile.userId;
-//             let displayName = profile.displayName;
-//             let pictureUrl = profile.pictureUrl;
-            
-//             let url = "https://script.google.com/macros/s/AKfycbzkpIHWFo0oPlIYHF2S2Chko53n5m6JgYKWE5i0LcCWTu-uq-np6neBs0U4-m6pVnN2tg/exec?userId="+userId+"&displayName="+displayName+"&pictureUrl="+pictureUrl;
-//             document.getElementById("formframe").src = url;
-//         }).catch(err => console.error(err));
-//     }
+    async function sendMsg() {
+      if (liff.getContext().type !== "none") {
+        await liff.sendMessages([
+          {
+            "type": "sticker",
+            "stickerId": 1,
+            "packageId": 1
+          }
+        ])
+        alert("Message sent")
+      }
+    }
+
+    function getContext() {
+      if (liff.getContext() != null) {
+        document.getElementById("type").append(liff.getContext().type)
+        document.getElementById("viewType").append(liff.getContext().viewType)
+        document.getElementById("utouId").append(liff.getContext().utouId)
+        document.getElementById("roomId").append(liff.getContext().roomId)
+        document.getElementById("groupId").append(liff.getContext().groupId)
+      }
+    }
+    
+
     
     async function runApp() {
       const profile = await liff.getProfile()
@@ -63,6 +77,7 @@ async function main() {
         await liff.init({ liffId: "1657706419-B8b8Gzz6" }, () => {
         if (liff.isLoggedIn()) {
             runApp();
+            getContext();
         } else {
             liff.login();
         }
