@@ -29,16 +29,14 @@
 <script src="js/vconsole.min.js"></script>
 <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
     
-<script>
-    
-    var textSet = "ลองดู"    
-    
+<script>    
     async function sendMsg() {
       if (liff.getContext().type !== "none") {
+        var textSet = "ลองใหม่"   
         await liff.sendMessages([
         {
             type: 'text',
-            text: ''+textSet,
+            text: 'พยายาม' + textSet,
         },
     ])
       }
