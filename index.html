@@ -30,7 +30,7 @@
 <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
     
 <script>  
-    
+var data = '<?= data ?>'    
 async function sendMsg() {
   let message = createFlexMessage();
       if (liff.getContext().type !== "none") {
@@ -65,7 +65,7 @@ async function sendMsg() {
               },
               {
                 "type": "text",
-                "text": "$2.99",
+                "text": "$2.99"+data,
                 "size": "sm",
                 "color": "#111111",
                 "align": "end"
