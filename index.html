@@ -25,6 +25,13 @@
     <iframe id="formframe" src="" frameborder="0"></iframe>
 </body>
 <script src="https://static.line-scdn.net/liff/edge/versions/2.15.0/sdk.js"></script>
+<script src="js/vconsole.min.js"></script>
+<script>
+  var vConsole = new VConsole()
+  console.log("Hello World!")
+</script>
+
+<script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
 <script>
     
     function runApp() {
@@ -38,13 +45,27 @@
         }).catch(err => console.error(err));
     }
 
-    liff.init({ liffId: "1657706419-B8b8Gzz6" }, () => {
+//     liff.init({ liffId: "1657706419-B8b8Gzz6" }, () => {
+//         if (liff.isLoggedIn()) {
+//             runApp();
+//         } else {
+//             liff.login();
+//         }
+//     }, err => console.error(err.code, error.message));
+    
+        async function main() {
+      liff.ready.then(() => {
+        document.getElementById("isLoggedIn").append(liff.isLoggedIn())
         if (liff.isLoggedIn()) {
-            runApp();
+          runApp();
         } else {
-            liff.login();
+          liff.login()
         }
-    }, err => console.error(err.code, error.message));
+      })
+      await liff.init({ liffId: "1657706419-B8b8Gzz6" })
+    }
+    main()
+
 
 </script>
 
