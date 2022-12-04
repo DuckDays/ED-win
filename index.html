@@ -34,21 +34,28 @@
 <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
 <script>
     
-    function runApp() {
-        liff.getProfile().then(profile => {
+//     function runApp() {
+//         liff.getProfile().then(profile => {
+//             let userId = profile.userId;
+//             let displayName = profile.displayName;
+//             let pictureUrl = profile.pictureUrl;
+            
+//             let url = "https://script.google.com/macros/s/AKfycbzkpIHWFo0oPlIYHF2S2Chko53n5m6JgYKWE5i0LcCWTu-uq-np6neBs0U4-m6pVnN2tg/exec?userId="+userId+"&displayName="+displayName+"&pictureUrl="+pictureUrl;
+//             document.getElementById("formframe").src = url;
+//         }).catch(err => console.error(err));
+//     }
+    
+    async function runApp() {
+      const profile = await liff.getProfile()
+
             let userId = profile.userId;
             let displayName = profile.displayName;
             let pictureUrl = profile.pictureUrl;
+            let statusMessage = profile.statusMessage;
             
             let url = "https://script.google.com/macros/s/AKfycbzkpIHWFo0oPlIYHF2S2Chko53n5m6JgYKWE5i0LcCWTu-uq-np6neBs0U4-m6pVnN2tg/exec?userId="+userId+"&displayName="+displayName+"&pictureUrl="+pictureUrl;
             document.getElementById("formframe").src = url;
-        }).catch(err => console.error(err));
-    }
-    
-    async function getUserProfile() {
-      const profile = await liff.getProfile()
-      const box1 = document.getElementById("statusMessage").append(profile.statusMessage)
-      console.log(box1)
+
     }
 
     
@@ -56,7 +63,6 @@ async function main() {
         await liff.init({ liffId: "1657706419-B8b8Gzz6" }, () => {
         if (liff.isLoggedIn()) {
             runApp();
-            getUserProfile();
         } else {
             liff.login();
         }
