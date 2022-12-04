@@ -31,18 +31,15 @@
     
 <script>   
     
-function message(st) {
-  let st ={
-            "type": "sticker",
-            "stickerId": 1,
-            "packageId": 1
-          };
-    }
-  
     
     async function sendMsg() {
       if (liff.getContext().type !== "none") {
-        await liff.sendMessages(message)
+        await liff.sendMessages([
+        {
+            type: 'text',
+            text: 'Hello, World!',
+        },
+    ])
       }
     }
     
