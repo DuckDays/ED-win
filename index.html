@@ -48,13 +48,12 @@
     }
 
     function getContext() {
-      if (liff.getContext() != null) {
           
-        document.getElementById("type").value(liff.getContext().type)
-        document.getElementById("viewType").value(liff.getContext().viewType)
-        document.getElementById("utouId").value(liff.getContext().utouId)
-        document.getElementById("roomId").value(liff.getContext().roomId)
-        document.getElementById("groupId").value(liff.getContext().groupId)
+        document.getElementById("type").append(liff.getContext().type)
+        document.getElementById("viewType").append(liff.getContext().viewType)
+        document.getElementById("utouId").append(liff.getContext().utouId)
+        document.getElementById("roomId").append(liff.getContext().roomId)
+        document.getElementById("groupId").append(liff.getContext().groupId)
           
       }
     }
