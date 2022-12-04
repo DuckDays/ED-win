@@ -76,9 +76,9 @@
   }
 }   
         await liff.sendMessages(flexJson)
+        return [{ type: "flex", altText: "คำนวณค่างวดรถ", contents: flexJson }];
         
-      }
-      return [{ type: "flex", altText: "คำนวณค่างวดรถ", contents: flexJson }];
+      }      
     }
     
 //     async function sendMsg() {
