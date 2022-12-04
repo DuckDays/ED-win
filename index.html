@@ -53,17 +53,15 @@
 //         }
 //     }, err => console.error(err.code, error.message));
     
-        async function main() {
-      liff.ready.then(() => {
-        //document.getElementById("isLoggedIn").append(liff.isLoggedIn())
+    async function main() {
+        await liff.init({ liffId: "1657706419-B8b8Gzz6" }, () => {
         if (liff.isLoggedIn()) {
-          runApp();
+            runApp();
         } else {
-          liff.login()
+            liff.login();
         }
-      })
-      await liff.init({ liffId: "1657706419-B8b8Gzz6" })
-    }
+    }, err => console.error(err.code, error.message));
+  }
     main()
 
 
