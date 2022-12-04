@@ -43,19 +43,18 @@
             "packageId": 1
           }
         ])
-        alert("Message sent")
+//         alert("Message sent")
       }
     }
 
     function getContext() {
-          
-        let type = document.getElementById("type").value;
-        let viewType = document.getElementById("viewType").value;
-        let utouId = document.getElementById("utouId").value;
-        let roomId = document.getElementById("roomId").value;
-        let groupId = document.getElementById("groupId").value;
-          
-      }
+
+        document.getElementById("type").append(liff.getContext().type)
+        document.getElementById("viewType").append(liff.getContext().viewType)
+        document.getElementById("utouId").append(liff.getContext().utouId)
+        document.getElementById("roomId").append(liff.getContext().roomId)
+        document.getElementById("groupId").append(liff.getContext().groupId)
+      
     }
     
 
