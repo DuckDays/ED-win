@@ -32,9 +32,8 @@
             let userId = profile.userId;
             let displayName = profile.displayName;
             let pictureUrl = profile.pictureUrl;
-            let statusMessage = profile.statusMessage;
             
-            let url = "https://script.google.com/macros/s/AKfycbzkpIHWFo0oPlIYHF2S2Chko53n5m6JgYKWE5i0LcCWTu-uq-np6neBs0U4-m6pVnN2tg/exec?userId="+userId+"&displayName="+displayName+"&pictureUrl="+pictureUrl+"&statusMessage="+statusMessage;
+            let url = "https://script.google.com/macros/s/AKfycbzkpIHWFo0oPlIYHF2S2Chko53n5m6JgYKWE5i0LcCWTu-uq-np6neBs0U4-m6pVnN2tg/exec?userId="+userId+"&displayName="+displayName+"&pictureUrl="+pictureUrl;
             document.getElementById("formframe").src = url;
         }).catch(err => console.error(err));
     }
