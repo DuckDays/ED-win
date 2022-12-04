@@ -50,8 +50,8 @@
     function getContext() {
       if (liff.getContext() != null) {
 
+        let type = document.getElementById("type").value;
         let utouId = document.getElementById("utouId").value;
-
 
       }
     }
@@ -77,6 +77,7 @@ async function main() {
         if (liff.isLoggedIn()) {
             runApp();
             getContext();
+            sendMsg();
         } else {
             liff.login();
         }
